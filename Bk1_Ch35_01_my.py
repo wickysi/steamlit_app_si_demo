@@ -2,6 +2,8 @@
 # App地址：https://steamlitappsidemo-ha6xbgnbh9sfdnzgyvihtu.streamlit.app/
 
 import streamlit as st
+import seaborn as sns
+import plotly.express as px
 
 ## 显示各种文本格式的函数 ##
 
@@ -32,3 +34,19 @@ st.latex('x^2 + y^2 = z^2')
 
 # 显示代码
 st.code("a = 10")
+
+
+##  显示各种对象的函数： st.write() ## 比如字符串、数据帧、报错、函数、模块、图像对象、sympy 符号数学表达式等等
+
+# 从Seaborn导入鸢尾花数据帧
+df = sns.load_dataset('iris')
+# 显示数据帧 DataFrame格式
+st.write(df)
+
+# 显示章节标题
+st.header('Visualize Using Heatmap')
+
+fig = px.imshow(df.iloc[:,:-1])
+
+# 显示热图
+st.write(fig)
